@@ -48,10 +48,16 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(238, 236, 240, 241),
+        backgroundColor: Color.fromARGB(232, 21, 64, 78),
         drawer: NavDrawer(),
         appBar: AppBar(
-          title: const Text('Tropical FM'),
+          backgroundColor: Color.fromARGB(232, 21, 64, 78),
+          centerTitle: true,
+          title: const Text('   Tropical FM',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  color: Color.fromARGB(232, 250, 251, 251),
+                  fontWeight: FontWeight.bold)),
         ),
         body: Center(
           child: Column(

@@ -65,9 +65,9 @@ class NavDrawer extends StatelessWidget {
   }
 
   _launchURL(String wUrl) async {
-    //const url = 'https://flutter.io';
+    const url = 'https://flutter.io';
     if (await canLaunchUrlString(wUrl)) {
-      await launchUrlString(wUrl);
+      await launchUrlString(url);
     } else {
       throw 'Could not launch $wUrl';
     }

@@ -54,19 +54,24 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
             currentPlaying = frpEvent.icyMetaDetails!;
             nowPlayingTextController.text = frpEvent.icyMetaDetails!;
           }
-          var statusIcon = const Icon(Icons.pause_circle_filled);
+          var statusIcon = const Icon(Icons.pause_circle_filled,
+              size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
           switch (frpEvent.playbackStatus) {
             case "flutter_radio_playing":
-              statusIcon = const Icon(Icons.pause_circle_filled);
+              statusIcon = const Icon(Icons.pause_circle_filled,
+                  size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
               break;
             case "flutter_radio_paused":
-              statusIcon = const Icon(Icons.play_circle_filled);
+              statusIcon = const Icon(Icons.play_circle_filled,
+                  size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
               break;
             case "flutter_radio_loading":
-              statusIcon = const Icon(Icons.refresh_rounded);
+              statusIcon = const Icon(Icons.refresh_rounded,
+                  size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
               break;
             case "flutter_radio_stopped":
-              statusIcon = const Icon(Icons.play_circle_filled);
+              statusIcon = const Icon(Icons.play_circle_filled,
+                  size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
               break;
           }
           return latestPlaybackStatus == "flutter_radio_stopped"
@@ -81,7 +86,11 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text(currentPlaying),
+                        Text(currentPlaying,
+                            style: TextStyle(
+                                color: Color.fromARGB(189, 255, 255, 255),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -93,6 +102,7 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
                               icon: const Icon(Icons.skip_previous),
                             ),*/
                             IconButton(
+                              //icon: Icon(statusIcon, size: 18.0),
                               onPressed: () async {
                                 widget.flutterRadioPlayer.playOrPause();
                                 resetNowPlayingInfo();
