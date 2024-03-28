@@ -23,7 +23,8 @@ class FRPlayer extends StatefulWidget {
 
 class _FRPlayerState extends State<FRPlayer> {
   int currentIndex = 0;
-  String frpStatus = "flutter_radio_stopped";
+  //String frpStatus = "flutter_radio_stopped";
+  String frpStatus = "flutter_radio_playing";
 
   @override
   void initState() {
