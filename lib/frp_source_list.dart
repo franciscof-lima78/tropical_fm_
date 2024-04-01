@@ -42,10 +42,10 @@ class _FRPSourceListState extends State<FRPSourceList> {
               ),
             },
             child: Container(
-              height: 0,
-              margin: const EdgeInsets.all(0),
+              //height: 0,
+              margin: const EdgeInsets.all(10),
               child: Card(
-                  color: Color.fromRGBO(0, 0, 0, 0),
+                  color: Color.fromARGB(232, 21, 64, 78),
                   /*shape: currentIndex == index
                       ? RoundedRectangleBorder(
                           side: const BorderSide(
@@ -60,7 +60,8 @@ class _FRPSourceListState extends State<FRPSourceList> {
                           borderRadius: BorderRadius.circular(0.0),
                         ),*/
                   child: Container(
-                    padding: const EdgeInsets.all(0),
+                    color: Color.fromARGB(232, 21, 64, 78),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
