@@ -59,6 +59,7 @@ class _MyAppState extends State<MyApp> {
         //In my case, I needed to show if user active or not,
         _flutterRadioPlayer.initPlayer();
         _flutterRadioPlayer.addMediaSources(frpSource);
+        _flutterRadioPlayer.play();
         break;
       case AppLifecycleState.paused:
         //Execute the code the when user leave the app
