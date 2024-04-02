@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_radio_player/flutter_radio_player.dart';
 import 'package:flutter_radio_player/models/frp_source_modal.dart';
 import 'package:tropical_fm/frp_controls.dart';
+import 'package:flutter/services.dart';
 import 'frp_player.dart';
 import 'nav-drawer.dart';
 
@@ -59,11 +60,14 @@ class _MyAppState extends State<MyApp> {
         //In my case, I needed to show if user active or not,
         _flutterRadioPlayer.initPlayer();
         _flutterRadioPlayer.addMediaSources(frpSource);
-        _flutterRadioPlayer.play();
         break;
       case AppLifecycleState.paused:
         //Execute the code the when user leave the app
         break;
+      case AppLifecycleState.detached:
+        _flutterRadioPlayer.stop();
+        //exit(0);
+        SystemNavigator.pop();
       default:
         break;
     }

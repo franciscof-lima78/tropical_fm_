@@ -24,6 +24,7 @@ class FRPlayer extends StatefulWidget {
 class _FRPlayerState extends State<FRPlayer> {
   int currentIndex = 0;
   //String frpStatus = "flutter_radio_stopped";
+  //Navigator.of(context).pop()
   String frpStatus = "flutter_radio_playing";
 
   @override
@@ -41,7 +42,8 @@ class _FRPlayerState extends State<FRPlayer> {
           flutterRadioPlayer: widget.flutterRadioPlayer,
           addSourceFunction: () =>
               widget.flutterRadioPlayer.addMediaSources(widget.frpSource),
-          updateCurrentStatus: (String status) => frpStatus = status,
+          updateCurrentStatus: (String status) =>
+              "flutter_radio_playing", //frpStatus = status,
           nextSource: () => {},
           prevSource: () => {},
         ),

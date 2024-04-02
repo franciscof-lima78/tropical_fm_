@@ -46,10 +46,17 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
             print("Other: ${frpEvent.data}");
             print("====== EVENT END =====");
           }
+          //frpEvent.playbackStatus = latestPlaybackStatus;
           if (frpEvent.playbackStatus != null) {
             latestPlaybackStatus = frpEvent.playbackStatus!;
             widget.updateCurrentStatus(latestPlaybackStatus);
+          } else {
+            //frpEvent
+            //frpEvent.playbackStatus = latestPlaybackStatus;
+
+            widget.updateCurrentStatus(latestPlaybackStatus);
           }
+
           if (frpEvent.icyMetaDetails != null) {
             currentPlaying = frpEvent.icyMetaDetails!;
             nowPlayingTextController.text = frpEvent.icyMetaDetails!;
@@ -57,6 +64,7 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
           var statusIcon = const Icon(Icons.pause_circle_filled,
               size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
           switch (frpEvent.playbackStatus) {
+            //switch (latestPlaybackStatus) {
             case "flutter_radio_playing":
               statusIcon = const Icon(Icons.pause_circle_filled,
                   size: 60.0, color: Color.fromARGB(232, 96, 247, 174));
