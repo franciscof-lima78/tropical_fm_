@@ -95,7 +95,7 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
                     child: Column(
                       children: [
                         Text(currentPlaying,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Color.fromARGB(189, 255, 255, 255),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold)),
@@ -156,6 +156,8 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
             child: const Text("Voltar a ouvir"),
           );
         }
+        widget.flutterRadioPlayer.play();
+        resetNowPlayingInfo();
         return const Text("Determining state ...");
       },
     );

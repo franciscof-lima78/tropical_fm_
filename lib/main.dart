@@ -1,7 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_radio_player/flutter_radio_player.dart';
 import 'package:flutter_radio_player/models/frp_source_modal.dart';
-import 'package:tropical_fm/frp_controls.dart';
 import 'package:flutter/services.dart';
 import 'frp_player.dart';
 import 'nav-drawer.dart';
@@ -12,6 +13,14 @@ void main() {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  void closeAppUsingSystemPop() {
+    SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+  }
+
+  void closeAppUsingExit() {
+    exit(0);
+  }
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -44,49 +53,36 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _flutterRadioPlayer.initPlayer();
     _flutterRadioPlayer.addMediaSources(frpSource);
-  }
-
-/*@override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }*/
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        //Execute the code here when user come back the app.
-        //In my case, I needed to show if user active or not,
-        _flutterRadioPlayer.initPlayer();
-        _flutterRadioPlayer.addMediaSources(frpSource);
-        break;
-      case AppLifecycleState.paused:
-        //Execute the code the when user leave the app
-        break;
-      case AppLifecycleState.detached:
-        _flutterRadioPlayer.stop();
-        //exit(0);
-        SystemNavigator.pop();
-      default:
-        break;
-    }
+    //WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(232, 21, 64, 78),
-        drawer: NavDrawer(),
+        backgroundColor: const Color.fromARGB(232, 21, 64, 78),
+        drawer: const NavDrawer(),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(232, 21, 64, 78),
+          backgroundColor: const Color.fromARGB(232, 21, 64, 78),
           centerTitle: true,
           title: const Text('   Tropical FM',
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                   color: Color.fromARGB(232, 250, 251, 251),
                   fontWeight: FontWeight.bold)),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                //context.widget.cl
+                closeAppUsingSystemPop();
+                closeAppUsingExit();
+              },
+            )
+          ],
         ),
         body: Center(
           child: Column(
@@ -114,4 +110,12 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+}
+
+void closeAppUsingExit() {
+  exit(0);
+}
+
+void closeAppUsingSystemPop() {
+  SystemChannels.platform.invokeMethod('SystemNavigator.pop');
 }

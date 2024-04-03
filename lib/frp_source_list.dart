@@ -35,8 +35,8 @@ class _FRPSourceListState extends State<FRPSourceList> {
               setState(
                 () {
                   currentIndex = index;
-                  widget.flutterRadioPlayer.seekToMediaSource(index, true);
-                  widget.flutterRadioPlayer.useIcyData(true);
+                  //widget.flutterRadioPlayer.seekToMediaSource(index, true);
+                  //widget.flutterRadioPlayer.useIcyData(true);
                   // widget.flutterRadioPlayer.
                 },
               ),
@@ -45,7 +45,7 @@ class _FRPSourceListState extends State<FRPSourceList> {
               //height: 0,
               margin: const EdgeInsets.all(10),
               child: Card(
-                  color: Color.fromARGB(232, 21, 64, 78),
+                  color: const Color.fromARGB(232, 21, 64, 78),
                   /*shape: currentIndex == index
                       ? RoundedRectangleBorder(
                           side: const BorderSide(
@@ -60,21 +60,21 @@ class _FRPSourceListState extends State<FRPSourceList> {
                           borderRadius: BorderRadius.circular(0.0),
                         ),*/
                   child: Container(
-                    color: Color.fromARGB(232, 21, 64, 78),
+                    color: const Color.fromARGB(232, 21, 64, 78),
                     padding: const EdgeInsets.all(10),
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           //mediaItem.title ?? "N/A",
                           "",
-                          style: const TextStyle(
+                          style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(238, 236, 240, 241)),
                         ),
                         Text(
                           "",
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Color.fromARGB(238, 236, 240, 241)),
                         ),
                       ],
