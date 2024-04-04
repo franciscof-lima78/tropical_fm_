@@ -35,15 +35,15 @@ class _FRPSourceListState extends State<FRPSourceList> {
               setState(
                 () {
                   currentIndex = index;
-                  //widget.flutterRadioPlayer.seekToMediaSource(index, true);
-                  //widget.flutterRadioPlayer.useIcyData(true);
+                  widget.flutterRadioPlayer.seekToMediaSource(index, true);
+                  widget.flutterRadioPlayer.useIcyData(true);
                   // widget.flutterRadioPlayer.
                 },
               ),
             },
             child: Container(
-              //height: 0,
-              margin: const EdgeInsets.all(10),
+              height: 0,
+              margin: const EdgeInsets.all(0),
               child: Card(
                   color: const Color.fromARGB(232, 21, 64, 78),
                   /*shape: currentIndex == index
@@ -61,7 +61,7 @@ class _FRPSourceListState extends State<FRPSourceList> {
                         ),*/
                   child: Container(
                     color: const Color.fromARGB(232, 21, 64, 78),
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(0),
                     child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

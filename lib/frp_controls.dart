@@ -158,7 +158,7 @@ class _FRPPlayerControlsState extends State<FRPPlayerControls> {
         }
         widget.flutterRadioPlayer.play();
         resetNowPlayingInfo();
-        return const Text("Determining state ...");
+        return const Text("Carregando ...");
       },
     );
   }

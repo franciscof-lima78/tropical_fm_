@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
@@ -24,32 +25,41 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading:
-                const Icon(Icons.camera, color: Color.fromARGB(232, 21, 228, 31)),
-            title: const Text(
-              'Instagram',
-              style: TextStyle(
-                  color: Color.fromARGB(232, 21, 228, 31), fontSize: 18),
-            ),
-            onTap: () => _launchURL('https://www.instagram.com/tropicalfm.pt'),
-          ),
+              leading: const Icon(Icons.camera,
+                  color: Color.fromARGB(232, 21, 228, 31)),
+              title: const Text(
+                'Instagram',
+                style: TextStyle(
+                    color: Color.fromARGB(232, 21, 228, 31), fontSize: 18),
+              ),
+              onTap: () => launchUrlStart(
+                  url:
+                      "https://www.instagram.com/tropicalfm.pt") //_launchURL('https://www.instagram.com/tropicalfm.pt'),
+              ),
           ListTile(
-            leading: const Icon(Icons.phone, color: Color.fromARGB(232, 21, 228, 31)),
+            leading: const Icon(Icons.phone,
+                color: Color.fromARGB(232, 21, 228, 31)),
             title: const Text(
               'Envie sua mensagem ou peça uma música',
               style: TextStyle(
                   color: Color.fromARGB(232, 21, 228, 31), fontSize: 18),
             ),
-            onTap: () => _launchURL('https://wa.me/351216019492'),
+            onTap: () => launchUrlStart(
+                url:
+                    "https://wa.me/351216019492"), //_launchURL('https://wa.me/351216019492'),
           ),
           ListTile(
-            leading: const Icon(Icons.web, color: Color.fromARGB(232, 21, 228, 31)),
+            leading:
+                const Icon(Icons.web, color: Color.fromARGB(232, 21, 228, 31)),
             title: const Text(
               'Site',
               style: TextStyle(
                   color: Color.fromARGB(232, 21, 228, 31), fontSize: 18),
             ),
-            onTap: () => _launchURL('http://tropicalfm.pt'),
+            //onTap: () => _launchURL('http://tropicalfm.pt'),
+            onTap: () => launchUrlStart(
+                url:
+                    "http://tropicalfm.pt"), //_launchURL('http://tropicalfm.pt'),
           ),
           /*ListTile(
             leading: Icon(Icons.border_color),
@@ -68,10 +78,18 @@ class NavDrawer extends StatelessWidget {
 
   _launchURL(String wUrl) async {
     const url = 'https://flutter.io';
+    //print(wUrl);
     if (await canLaunchUrlString(wUrl)) {
       await launchUrlString(url);
     } else {
+      //print("ruim");
       throw 'Could not launch $wUrl';
     }
+  }
+}
+
+Future<void> launchUrlStart({required String url}) async {
+  if (!await launchUrl(Uri.parse(url))) {
+    throw 'Erro: $url';
   }
 }

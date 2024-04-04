@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(232, 21, 64, 78),
           centerTitle: true,
-          title: const Text('   Tropical FM',
+          title: const Text('   Tropical FM - BETA',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Color.fromARGB(232, 250, 251, 251),
